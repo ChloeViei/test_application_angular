@@ -5,13 +5,8 @@ import {ShowBurgerComponent} from './Burger/show-burger/show-burger.component';
 
 
 const routes: Routes = [
-  {
-    path: '', component: ListBurgerComponent, children: [
-      {path: '', redirectTo: 'burgers', pathMatch: 'full'},
-      {path: 'burgers', component: ListBurgerComponent},
-      { path: 'burger/:id', component: ShowBurgerComponent }
-    ]
-  }
+  {path: '', component: ListBurgerComponent},
+  { path: 'burger/:id', component: ShowBurgerComponent }
 ];
 
 @NgModule({

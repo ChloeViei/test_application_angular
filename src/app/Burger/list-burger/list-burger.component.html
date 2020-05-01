@@ -1,9 +1,16 @@
-<div>
-  <h4>List of Burgers</h4>
-  <ul>
-    <li *ngFor="let burger of burgers">
-      Burger {{burger.id}} : {{burger.name}} = {{burger.price}} €
-      <img width=300 src="{{burger.image}}"/>
-    </li>
-  </ul>
+<h2>Burgers</h2>
+<p>L'ensemble de nos burgers !</p>
+
+<div class="card-container">
+  <div *ngFor="let burger of burgers">
+    <a class="card" routerLink="burger/{{burger.id}}">
+
+      <img width=50 src="{{burger.image}}" alt="image du burger"/>
+
+      <span> {{burger.name}} </span>
+
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+  </div>
 </div>

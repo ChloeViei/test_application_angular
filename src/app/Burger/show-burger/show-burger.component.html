@@ -1,4 +1,50 @@
-<div *ngIf="burger">
-  <h2>{{ burger.name }} Information : </h2>
-  <div><span>id: </span>{{ burger.id }}</div>
+<h2>{{ burger.name }} </h2>
+<p>Information détaillé du burger</p>
+
+<div class="card-container">
+
+    <img width=500 src="{{burger.image}}" alt="image du burger"/>
+
+</div>
+
+<!-- Next Steps -->
+<h2>Informations </h2>
+<p>Tout savoir</p>
+
+<input type="hidden" #selection>
+
+<div class="card-container">
+  <div class="card card-small" (click)="selection.value = 'prix'" tabindex="0">
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+    <span>Prix</span>
+  </div>
+
+  <div class="card card-small" (click)="selection.value = 'nutriscore'" tabindex="0">
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+    <span>Nutriscore</span>
+  </div>
+
+  <div class="card card-small" (click)="selection.value = 'graisse'" tabindex="0">
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+    <span>Graisse saturé</span>
+  </div>
+
+  <div class="card card-small" (click)="selection.value = 'kcal'" tabindex="0">
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+    <span>Kilocalorie</span>
+  </div>
+
+</div>
+
+<!-- Terminal -->
+<div class="terminal" [ngSwitch]="selection.value">
+  <pre *ngSwitchDefault>{{burger.price}} €</pre>
+  <pre *ngSwitchCase="'nutriscore'">{{burger.nutriscore}}</pre>
+  <pre *ngSwitchCase="'prix'">{{burger.price}} €</pre>
+  <pre *ngSwitchCase="'graisse'">{{burger.nutriments['saturated-fat']}}</pre>
+  <pre *ngSwitchCase="'kcal'">{{burger.nutriments['energy-kcal']}}</pre>
 </div>
