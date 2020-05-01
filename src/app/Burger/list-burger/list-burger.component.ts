@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BurgersService } from '../../swagger/api/burgers.service';
-import { Burger } from '../../swagger/model/models';
-
+import { BurgersService } from '../../swagger';
 
 @Component({
   selector: 'app-list-burger',
@@ -11,9 +9,9 @@ import { Burger } from '../../swagger/model/models';
 })
 export class ListBurgerComponent implements OnInit {
 
-  burgers: Burger[];
+  burgers;
 
-  constructor(private burgersService: BurgersService) { }
+  constructor(private burgersService: BurgersService) {}
 
   ngOnInit(): void {
     this.getBurgers();
