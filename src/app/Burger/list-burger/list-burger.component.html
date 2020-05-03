@@ -1,5 +1,5 @@
 <h2>Burgers</h2>
-<p>L'ensemble de nos burgers !</p>
+<p>Style CSS</p>
 
 <div class="card-container">
   <div *ngFor="let burger of burgers">
@@ -14,3 +14,33 @@
 
   </div>
 </div>
+
+<br>
+
+<h2>Burgers</h2>
+<p>Style Material</p>
+
+<mat-grid-list cols="6" rowHeight="120px">
+  <mat-grid-tile [colspan]="2" [rowspan]="3" *ngFor="let burger of burgers">
+    <mat-card class="burger-card">
+      <mat-card-header>
+        <div mat-card-avatar class="burger-header-image"></div>
+        <mat-card-title>{{burger.name}}</mat-card-title>
+        <mat-card-subtitle>Burger</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{burger.image}}" alt="Photo burger">
+      <mat-card-content>
+        <p>
+          Prix : {{burger.price}} €
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a  mat-stroked-button class="card" routerLink="burger/{{burger.id}}">
+          en savoir plus
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
